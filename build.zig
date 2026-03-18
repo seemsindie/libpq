@@ -95,7 +95,7 @@ pub fn build(b: *std.Build) !void {
     }
 
     pg_config.addValues(.{
-        .USE_OPENSSL = use_ssl,
+        .USE_OPENSSL = use_openssl,
         .OPENSSL_API_COMPAT = .@"0x10001000L",
         .HAVE_LIBCRYPTO = use_ssl,
         .HAVE_LIBSSL = use_ssl,
@@ -154,7 +154,10 @@ pub fn build(b: *std.Build) !void {
         .USE_ZSTD = use_zstd,
     });
 
-    const have_strlcat: bool = target.result.os.tag == .macos or (target.result.os.tag == .linux and target.result.os.versionRange().gnuLibCVersion().?.order(.{ .major = 2, .minor = 38, .patch = 0 }) == .gt);
+    const have_strlcat: bool = target.result.os.tag == .macos or (target.result.os.tag == .linux and blk: {
+        if (!target.result.isGnuLibC()) break :blk true; // musl has strlcat
+        break :blk target.result.os.versionRange().gnuLibCVersion().?.order(.{ .major = 2, .minor = 38, .patch = 0 }) == .gt;
+    });
     if (!have_strlcat) {
         mod.addCSourceFiles(.{
             .root = upstream.path("src/port"),
