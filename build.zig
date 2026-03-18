@@ -413,6 +413,7 @@ const common_sources = .{
 };
 
 const CFLAGS = .{
+    "-fno-sanitize=undefined",
     "-fwrapv",
     "-fno-strict-aliasing",
     "-fexcess-precision=standard",
