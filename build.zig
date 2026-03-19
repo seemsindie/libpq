@@ -414,7 +414,6 @@ const common_sources = .{
 
 const CFLAGS = .{
     "-fno-sanitize=undefined",
-    "-O0",
     "-fwrapv",
     "-fno-strict-aliasing",
     "-fexcess-precision=standard",
