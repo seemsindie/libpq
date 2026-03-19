@@ -422,7 +422,7 @@ const CFLAGS = .{
     "-Wno-compound-token-split-by-macro",
     "-Wno-format-truncation",
     "-Wno-cast-function-type-strict",
-    "-Wno-ignored-qualifiers",
+    "-Wno-incompatible-pointer-types-discards-qualifiers",
 
     "-Werror",
     "-Wall",
