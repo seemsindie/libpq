@@ -24,8 +24,8 @@
             .lazy = true,
         },
         .zstd = .{
-            .url = "git+https://github.com/seemsindie/zstd#425984089c6351f6d2b494bf3f322b1735f83ba5",
-            .hash = "zstd-1.5.7-1-KEItkAMwAAD6OKY3m0OOmXG7aL-aLUfrDqbP5J5oYapU",
+            .url = "git+https://github.com/seemsindie/zstd#0a302cc23664dec78214c4dd9bfcc65ada20fd35",
+            .hash = "zstd-1.5.7-1-KEItkP8vAACtBmTZtXzSd8WgJP3zOuxPdDfpLOz-mmJa",
             .lazy = true,
         },
     },
